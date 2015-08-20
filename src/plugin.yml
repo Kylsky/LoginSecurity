@@ -1,0 +1,25 @@
+name: LoginSecurity
+version: 2.1
+main: net.meano.ls.LoginSecurity
+author: Meano
+description: The #1 Auth plugin
+softdepend: [xAuth]
+commands:
+  login:
+    description: Login with your account.
+    usage: /login <密码>
+  register:
+    description: Set a password for your account.
+    usage: /register <自定密码>
+  changepass:
+    description: Change the password for your account.
+    usage: /changepass <旧密码> <新密码>
+  rmpass:
+    description: Remove your password.
+    usage: /rmpass <密码>
+  logout:
+    description: Logout and end your session.
+    usage: /logout
+  lac:
+    description: LoginSecurity Admin command.
+    usage: /lac
