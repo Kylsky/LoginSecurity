@@ -29,7 +29,7 @@ public class LoginCommand implements CommandExecutor {
 			return true;
 		}
 		if (args.length < 1) {
-			player.sendMessage(ChatColor.RED + "参数不够！�");
+			player.sendMessage(ChatColor.RED + "参数不够！");
 			player.sendMessage("命令使用方法：" + cmd.getUsage());
 			return true;
 		}
