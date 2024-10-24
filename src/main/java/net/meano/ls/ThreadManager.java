@@ -124,8 +124,8 @@ public class ThreadManager {
 								player.teleport(fixedLocation);
 							}
 
-							player.kickPlayer("��¼��ʱ��");
-							LoginSecurity.log.log(Level.INFO, "{0} ���¼��ʱ���߳���������", player.getName());
+							player.kickPlayer("登录超时！");
+							LoginSecurity.log.log(Level.INFO, "{0} 因登录超时被踢出服务器！", player.getName());
 						}
 					}
 				}
