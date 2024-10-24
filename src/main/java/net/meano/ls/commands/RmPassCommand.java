@@ -12,7 +12,7 @@ public class RmPassCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		LoginSecurity plugin = LoginSecurity.instance;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("Ö»ÓĞÍæ¼Ò²ÅÄÜÊ¹ÓÃ´ËÃüÁî£¡");
+			sender.sendMessage("åªæœ‰ç©å®¶æ‰èƒ½ä½¿ç”¨æ­¤å‘½ä»¤ã€‚");
 			return true;
 		}
 
@@ -20,25 +20,25 @@ public class RmPassCommand implements CommandExecutor {
 		String name = player.getName().toLowerCase();
 
 		if (!plugin.data.isRegistered(name)) {
-			player.sendMessage(ChatColor.RED + "Äú»¹Ã»ÓĞ×¢²á£¡");
+			player.sendMessage(ChatColor.RED + "æ‚¨è¿˜æ²¡æœ‰æ³¨å†Œï¼");
 			return true;
 		}
 		if (args.length < 1) {
-			player.sendMessage(ChatColor.RED + "²ÎÊı²»¹»£¡");
-			player.sendMessage("ÃüÁîÊ¹ÓÃ·½·¨£º" + cmd.getUsage());
+			player.sendMessage(ChatColor.RED + "å‚æ•°ä¸å¤Ÿï¼");
+			player.sendMessage("å‘½ä»¤ä½¿ç”¨æ–¹æ³•ï¼š" + cmd.getUsage());
 			return true;
 		}
 		if (!PasswordManager.checkPass(name, args[0])) {
-			player.sendMessage(ChatColor.RED + "¾ÉÃÜÂë²»ÕıÈ·£¡");
+			player.sendMessage(ChatColor.RED + "æ—§å¯†ç ä¸æ­£ç¡®ï¼");
 			return true;
 		}
 		if (plugin.required) {
-			player.sendMessage(ChatColor.RED + "·şÎñÆ÷ĞèÒªÃÜÂë²ÅÄÜµÇÂ¼£¡");
+			player.sendMessage(ChatColor.RED + "æœåŠ¡å™¨éœ€è¦å¯†ç æ‰èƒ½ç™»å½•ï¼");
 			return true;
 		}
 
 		plugin.data.removeUser(name);
-		player.sendMessage(ChatColor.GREEN + "³É¹¦ÒÆ³ıÁËÄãµÄÃÜÂë£¡");
+		player.sendMessage(ChatColor.GREEN + "æˆåŠŸç§»é™¤äº†ä½ çš„å¯†ç ï¼");
 		return true;
 	}
 }

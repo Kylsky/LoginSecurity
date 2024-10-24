@@ -105,7 +105,7 @@ public class SQLite implements DataManager {
 				Players.add(result.getString("username"));
 			}
 		} catch (SQLException e) {
-			this.log.log(Level.SEVERE, "查找相同IP玩家失败！", e);
+			this.log.log(Level.SEVERE, "Find Same IP ERROR", e);
 		}
 		SameIPPlayers = Players.toString();
 		Players.clear();

@@ -263,10 +263,10 @@ public class LoginSecurity extends JavaPlugin {
 			this.authList.put(name, Boolean.valueOf(false));
 			player.sendMessage(ChatColor.AQUA + "亲爱的玩家你好，欢迎回到Minecraft Meano服！");
 			player.sendMessage(ChatColor.RED + "请按按键[T]  然后输入 /login <密码> 来登录服务器。");
-			player.sendMessage(ChatColor.RED + "注意：第一次来到Meano服的玩家，看到此消息则你的游戏ID已被注册，请更换ID。");
+			player.sendMessage(ChatColor.RED + "注意：第一次来到本服的玩家，看到此消息则你的游戏ID已被注册，请更换ID。");
 		} else if (this.required) {
 			this.authList.put(name, Boolean.valueOf(true));
-			player.sendMessage(ChatColor.AQUA + "新人你好，欢迎来到Minecraft Meano服！");
+			player.sendMessage(ChatColor.AQUA + "新人你好，欢迎来到本服！");
 			player.sendMessage(ChatColor.RED + "请按按键[T]  然后输入 /register <自定密码> 来设定进入的游戏密码�?");
 			player.sendMessage(ChatColor.RED + "注意：命令需要英文状态下输入，密码不要太简单，/register <自定密码>之间有空格。");
 		} else {

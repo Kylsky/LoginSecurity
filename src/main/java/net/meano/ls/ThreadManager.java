@@ -59,11 +59,11 @@ public class ThreadManager {
 					if (ThreadManager.this.plugin.authList.containsKey(name)) {
 						boolean register = ((Boolean) ThreadManager.this.plugin.authList.get(name)).booleanValue();
 						if (register) {
-							player.sendMessage(ChatColor.RED + "Çë°´°´¼ü[T]  È»ºóÊäÈë /register <×Ô¶¨ÃÜÂë> À´Éè¶¨½øÈëµÄÓÎÏ·ÃÜÂë¡£");
-							player.sendMessage(ChatColor.RED + "×¢Òâ£ºÃüÁîĞèÒªÓ¢ÎÄ×´Ì¬ÏÂÊäÈë£¬ÃÜÂë²»ÒªÌ«¼òµ¥£¬/registerºÍ<×Ô¶¨ÃÜÂë>Ö®¼äÓĞ¿Õ¸ñ¡£");
+							player.sendMessage(ChatColor.RED + "è¯·æŒ‰æŒ‰é”®[T]  ç„¶åè¾“å…¥ /register <è‡ªå®šå¯†ç > æ¥è®¾å®šè¿›å…¥çš„æ¸¸æˆå¯†ç ã€‚");
+							player.sendMessage(ChatColor.RED + "æ³¨æ„ï¼šå‘½ä»¤éœ€è¦è‹±æ–‡çŠ¶æ€ä¸‹è¾“å…¥ï¼Œå¯†ç ä¸è¦å¤ªç®€å•ï¼Œ/registerå’Œ<è‡ªå®šå¯†ç >ä¹‹é—´æœ‰ç©ºæ ¼ã€‚");
 						} else {
-							player.sendMessage(ChatColor.RED + "Çë°´°´¼ü[T]  È»ºóÊäÈë /login <ÃÜÂë> À´µÇÂ¼·şÎñÆ÷¡£");
-							player.sendMessage(ChatColor.RED + "×¢Òâ£ºÈç¹ûÄãµÚÒ»´ÎÀ´µ½Meano·ş£¬¿´µ½´ËÏûÏ¢ÔòÄãµÄÓÎÏ·IDÒÑ±»×¢²á£¬Çë¸ü»»IDÔÙ½øÈë¡£");
+							player.sendMessage(ChatColor.RED + "è¯·æŒ‰æŒ‰é”®[T]  ç„¶åè¾“å…¥ /login <å¯†ç > æ¥ç™»å½•æœåŠ¡å™¨ã€‚");
+							player.sendMessage(ChatColor.RED + "æ³¨æ„ï¼šå¦‚æœä½ ç¬¬ä¸€æ¬¡æ¥åˆ°æœ¬æœï¼Œçœ‹åˆ°æ­¤æ¶ˆæ¯åˆ™ä½ çš„æ¸¸æˆIDå·²è¢«æ³¨å†Œï¼Œè¯·æ›´æ¢IDå†è¿›å…¥ã€‚");
 						}
 					}
 				}
@@ -124,8 +124,8 @@ public class ThreadManager {
 								player.teleport(fixedLocation);
 							}
 
-							player.kickPlayer("µÇÂ¼³¬Ê±£¡");
-							LoginSecurity.log.log(Level.INFO, "{0} ÒòµÇÂ¼³¬Ê±±»Ìß³ö·şÎñÆ÷£¡", player.getName());
+							player.kickPlayer("ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½");
+							LoginSecurity.log.log(Level.INFO, "{0} ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", player.getName());
 						}
 					}
 				}

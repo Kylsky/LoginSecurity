@@ -13,7 +13,7 @@ public class ChangePassCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		LoginSecurity plugin = LoginSecurity.instance;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("Ö»ÓĞÍæ¼Ò²ÅÄÜÊ¹ÓÃ£¡");
+			sender.sendMessage("åªæœ‰ç©å®¶æ‰èƒ½ä½¿ç”¨ï¼");
 			return true;
 		}
 
@@ -21,24 +21,24 @@ public class ChangePassCommand implements CommandExecutor {
 		String name = player.getName().toLowerCase();
 
 		if (!plugin.data.isRegistered(name)) {
-			player.sendMessage(ChatColor.RED + "Äã»¹Î´ÔÚ·şÎñÆ÷ÉÏ×¢²á");
+			player.sendMessage(ChatColor.RED + "ä½ è¿˜æœªåœ¨æœåŠ¡å™¨ä¸Šæ³¨å†Œ");
 			return true;
 		}
 		if (args.length < 2) {
-			player.sendMessage(ChatColor.RED + "²ÎÊı²»ÕıÈ·");
-			player.sendMessage("ÃüÁîÊ¹ÓÃ·½·¨: " + cmd.getUsage());
+			player.sendMessage(ChatColor.RED + "å‚æ•°ä¸æ­£ç¡®");
+			player.sendMessage("å‘½ä»¤ä½¿ç”¨æ–¹æ³•: " + cmd.getUsage());
 			return true;
 		}
 		if (!PasswordManager.checkPass(name, args[0])) {
-			player.sendMessage(ChatColor.RED + "ÃÜÂë²»ÕıÈ·");
-			LoginSecurity.log.log(Level.WARNING, "[LoginSecurity] {0} ¸ü¸ÄÃÜÂëÊ§°Ü£¡", player.getName());
+			player.sendMessage(ChatColor.RED + "å¯†ç ä¸æ­£ç¡®");
+			LoginSecurity.log.log(Level.WARNING, "[LoginSecurity] {0} æ›´æ”¹å¯†ç å¤±è´¥ï¼", player.getName());
 			return true;
 		}
 
 		String newPass = plugin.hasher.hash(args[1]);
 		plugin.data.updatePassword(name, newPass, plugin.hasher.getTypeId());
-		player.sendMessage(ChatColor.GREEN + "³É¹¦¸ü¸ÄÃÜÂëÎª£º " + args[1]);
-		LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} ³É¹¦ĞŞ¸ÄÁËÃÜÂë£¡", player.getName());
+		player.sendMessage(ChatColor.GREEN + "æˆåŠŸæ›´æ”¹å¯†ç ä¸ºï¼š" + args[1]);
+		LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} æˆåŠŸä¿®æ”¹äº†å¯†ç ï¼", player.getName());
 
 		return true;
 	}

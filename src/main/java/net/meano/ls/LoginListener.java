@@ -44,12 +44,12 @@ public class LoginListener implements Listener {
 		String ip = player.getAddress().getAddress().toString();
 		String Sameip = plugin.data.SameIP(ip);
 		if ((!Sameip.replaceAll("[\\[\\]]", "").equals(name)) || Sameip.length() == 2) {
-			// player.sendMessage(ChatColor.GOLD+"ÄãÓÐ¿ÉÄÜÊÇ"+Sameip.replace(name+", ",
-			// "").trim()+"µÄÐ¡ºÅ£¬´ËÏûÏ¢»áÔÚ·þÎñÆ÷¼ÇÂ¼£¬ÈôÄúºÍÐ¡»ï°éÍ¬ÓÃÒ»¸öÂ·ÓÉÆ÷£¬¿ÉºöÂÔ´ËÏûÏ¢¡£");
-			plugin.getLogger().info(name + "¿ÉÄÜÊÇ" + Sameip.replace(name + ", ", "") + "µÄÐ¡ºÅ£¡");
+			// player.sendMessage(ChatColor.GOLD+"ä½ æœ‰å¯èƒ½æ˜¯"+Sameip.replace(name+", ",
+			// "").trim()+"çš„å°å·ï¼Œæ­¤æ¶ˆæ¯ä¼šåœ¨æœåŠ¡å™¨è®°å½•ï¼Œè‹¥æ‚¨å’Œå°ä¼™ä¼´åŒç”¨ä¸€ä¸ªè·¯ç”±å™¨ï¼Œå¯å¿½ç•¥æ­¤æ¶ˆæ¯ã€‚");
+			plugin.getLogger().info(name + "å¯èƒ½æ˜¯" + Sameip.replace(name + ", ", "") + "çš„å°å·");
 		}
 		if (!player.getName().equals(StringUtil.cleanString(player.getName()))) {
-			player.kickPlayer("ÓÎÏ·ID>>" + name + "<<ÖÐ°üº¬²»¿ÉÓÃµÄ×Ö·û´®£¬¿ÉÓÃµÄÓÎÏ·IDÓÉ3-15¸öÖÐÎÄ×Ö·û»òÓ¢ÎÄ×Ö·û»òÊý×Ö×é³É£¬Çë¸ü»»×Ô¼ºµÄÓÎÏ·ID!");
+			player.kickPlayer("æ¸¸æˆID>>" + name + "<<ä¸­åŒ…å«ä¸å¯ç”¨çš„å­—ç¬¦ä¸²ï¼Œå¯ç”¨çš„æ¸¸æˆIDç”±3-15ä¸ªä¸­æ–‡å­—ç¬¦æˆ–è‹±æ–‡å­—ç¬¦æˆ–æ•°å­—ç»„æˆï¼Œè¯·æ›´æ¢è‡ªå·±çš„æ¸¸æˆID!");
 			return;
 		}
 		this.plugin.playerJoinPrompt(player, name);
@@ -63,7 +63,7 @@ public class LoginListener implements Listener {
 			if (!this.plugin.authList.containsKey(pname)) {
 				if (pname.equalsIgnoreCase(name)) {
 					event.setLoginResult(Result.KICK_OTHER);
-					event.setKickMessage("ÃûÎª" + name + "µÄÍæ¼ÒÒÑ¾­´¦ÓÚÔÚÏß×´Ì¬¡£");
+					event.setKickMessage("åä¸º" + name + "çš„çŽ©å®¶å·²ç»å¤„äºŽåœ¨çº¿çŠ¶æ€ã€‚");
 				}
 			}
 		}
@@ -96,7 +96,7 @@ public class LoginListener implements Listener {
 		}
 	}
 
-	// ²»ÄÜ·ÅÖÃ·½¿é
+	// ä¸èƒ½æ”¾ç½®æ–¹å—
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onBlockPlace(BlockPlaceEvent event) {
 		Player player = event.getPlayer();
@@ -113,7 +113,7 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// ²»ÄÜ¶ªÆúÎïÆ·
+	// ä¸èƒ½ä¸¢å¼ƒç‰©å“
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onPlayerDropItem(PlayerDropItemEvent event) {
 		Player player = event.getPlayer();
@@ -122,7 +122,7 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// µÇÂ¼Ç°ÎÞ·¨Ê°È¡ÎïÆ·
+	// ç™»å½•å‰æ— æ³•æ‹¾å–ç‰©å“
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
 		Player player = event.getPlayer();
@@ -131,13 +131,13 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// ÎÞ·¨½²»°
+	// æ— æ³•è®²è¯
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent chat) {
 		Player player = chat.getPlayer();
 		String pname = player.getName().toLowerCase();
 		if (this.plugin.authList.containsKey(pname)) {
-			player.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD + ">>Äú»¹Î´µÇÂ¼»ò×¢²á£¬ÇëÊ¹ÓÃÃüÁî/register ÃÜÂë À´×¢²áÓÎÏ·£¬Ê¹ÓÃ/login ÃÜÂë À´µÇÂ¼ÓÎÏ·¡£");
+			player.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD + ">>ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Â¼ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/register ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ê¹ï¿½ï¿½/login ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ï·ï¿½ï¿½");
 			chat.setMessage("");
 			chat.setCancelled(true);
 		}
@@ -169,7 +169,7 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// µÇÂ¼Ç°ÎÞ·¨¿ªÏä
+	// ç™»å½•å‰æ— æ³•å¼€ç®±
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onInventoryClick(InventoryClickEvent event) {
 		Entity entity = event.getWhoClicked();
@@ -182,7 +182,7 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// µÇÂ¼Ç°ÊÜÉËº¦±£»¤
+	// ç™»å½•å‰å—ä¼¤å®³ä¿æŠ¤
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onEntityDamage(EntityDamageEvent event) {
 		Entity entity = event.getEntity();
@@ -194,7 +194,7 @@ public class LoginListener implements Listener {
 		}
 	}
 
-	// µÇÂ¼Ç°¶¾Ò©±£»¤
+	// ç™»å½•å‰æ¯’è¯ä¿æŠ¤
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onPotionSplash(PotionSplashEvent event) {
 		for (LivingEntity entity : event.getAffectedEntities())
@@ -206,7 +206,7 @@ public class LoginListener implements Listener {
 			}
 	}
 
-	// µÇÂ¼Ç°PvP±£»¤
+	// ç™»å½•å‰PvPä¿æŠ¤
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 		Entity defender = event.getEntity();
@@ -227,7 +227,7 @@ public class LoginListener implements Listener {
 		}
 	}
 
-	// µÇÂ¼Ç°±£»¤Íæ¼Ò²»ÊÜÉËº¦
+	// ç™»å½•å‰ä¿æŠ¤çŽ©å®¶ä¸å—ä¼¤å®³
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onEntityTarget(EntityTargetEvent event) {
 		Entity entity = event.getTarget();
@@ -239,7 +239,7 @@ public class LoginListener implements Listener {
 		}
 	}
 
-	// µÇÂ¼Ç°ÎÞ·¨½øÐÐ½»»¥
+	// ç™»å½•å‰æ— æ³•è¿›è¡Œäº¤äº’
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		String name = event.getPlayer().getName().toLowerCase();
@@ -247,13 +247,13 @@ public class LoginListener implements Listener {
 			event.setCancelled(true);
 	}
 
-	// µÇÂ¼ÐÅÏ¢¹ýÂË
+	// ç™»å½•ä¿¡æ¯è¿‡æ»¤
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
 		Player player = event.getPlayer();
 		String name = player.getName().toLowerCase();
 		if ((this.plugin.authList.containsKey(name)) && (!event.getMessage().toLowerCase().startsWith("/login")) && (!event.getMessage().toLowerCase().startsWith("/register"))) {
-			player.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD + ">>Äú»¹Î´µÇÂ¼»ò×¢²á£¬ÇëÊ¹ÓÃÃüÁî/register ÃÜÂë À´×¢²áÓÎÏ·£¬Ê¹ÓÃ/login ÃÜÂë À´µÇÂ¼ÓÎÏ·¡£");
+			player.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD + ">>ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Â¼ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/register ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ê¹ï¿½ï¿½/login ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ï·ï¿½ï¿½");
 			event.setCancelled(true);
 		}
 	}

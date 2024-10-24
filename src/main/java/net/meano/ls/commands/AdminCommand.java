@@ -10,7 +10,7 @@ public class AdminCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		LoginSecurity plugin = LoginSecurity.instance;
 		if (!sender.hasPermission("ls.admin")) {
-			sender.sendMessage(ChatColor.RED + "ÄãÃ»È¨ÏÞ!");
+			sender.sendMessage(ChatColor.RED + " Permission Denied!");
 			return true;
 		}
 

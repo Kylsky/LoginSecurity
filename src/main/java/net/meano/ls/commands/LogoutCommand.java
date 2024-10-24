@@ -12,7 +12,7 @@ public class LogoutCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		LoginSecurity plugin = LoginSecurity.instance;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("Ö»ÓĞÍæ¼Ò²ÅÄÜÊ¹ÓÃ´ËÃüÁî¡£");
+			sender.sendMessage("åªæœ‰ç©å®¶æ‰èƒ½ä½¿ç”¨æ­¤å‘½ä»¤ã€‚");
 			return true;
 		}
 
@@ -20,11 +20,11 @@ public class LogoutCommand implements CommandExecutor {
 		String name = player.getName().toLowerCase();
 
 		if (plugin.authList.containsKey(name)) {
-			player.sendMessage(ChatColor.RED + "Äú±ØĞëÒªµÇÂ¼²ÅÄÜÊ¹ÓÃ´ËÃüÁî¡£");
+			player.sendMessage(ChatColor.RED + "æ‚¨å¿…é¡»è¦ç™»å½•æ‰èƒ½ä½¿ç”¨æ­¤å‘½ä»¤ã€‚");
 			return true;
 		}
 		if (!plugin.data.isRegistered(name)) {
-			player.sendMessage(ChatColor.RED + "Äú»¹Ã»×¢²á£¡");
+			player.sendMessage(ChatColor.RED + "æ‚¨è¿˜æ²¡æœ‰æ³¨å†Œï¼");
 		}
 
 		plugin.authList.put(name, Boolean.valueOf(false));
@@ -34,8 +34,8 @@ public class LogoutCommand implements CommandExecutor {
 			plugin.thread.getSession().remove(name);
 		}
 
-		player.sendMessage(ChatColor.GREEN + "µÇ³öÓÎÏ·£¬ÔÙ¼û~");
-		LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} µÇ³öÓÎÏ·¡£", player.getName());
+		player.sendMessage(ChatColor.GREEN + "ç™»å‡ºæ¸¸æˆï¼ŒæœŸå¾…å†è§~");
+		LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} ç™»å‡ºæ¸¸æˆ", player.getName());
 		return true;
 	}
 }

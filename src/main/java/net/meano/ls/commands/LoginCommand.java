@@ -13,7 +13,7 @@ public class LoginCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		LoginSecurity plugin = LoginSecurity.instance;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("Ö»ÓĞÍæ¼Ò²ÅÄÜÊ¹ÓÃ´ËÃüÁî£¡");
+			sender.sendMessage("åªæœ‰ç©å®¶æ‰èƒ½ä½¿ç”¨æ­¤å‘½ä»¤ï¼");
 			return true;
 		}
 
@@ -21,27 +21,27 @@ public class LoginCommand implements CommandExecutor {
 		String name = player.getName().toLowerCase();
 
 		if (!plugin.authList.containsKey(name)) {
-			player.sendMessage(ChatColor.RED + "ÄãÒÑ¾­µÇÂ¼ÁË£¡");
+			player.sendMessage(ChatColor.RED + "ä½ å·²ç»ç™»å½•äº†ï¼");
 			return true;
 		}
 		if (!plugin.data.isRegistered(name)) {
-			player.sendMessage(ChatColor.RED + "»¹Î´ÉèÖÃÃÜÂë£¡");
+			player.sendMessage(ChatColor.RED + "è¿˜æœªè®¾ç½®å¯†ç ï¼");
 			return true;
 		}
 		if (args.length < 1) {
-			player.sendMessage(ChatColor.RED + "²ÎÊı²»¹»£¡");
-			player.sendMessage("ÃüÁîÊ¹ÓÃ·½·¨£º" + cmd.getUsage());
+			player.sendMessage(ChatColor.RED + "å‚æ•°ä¸å¤Ÿï¼ï¿½");
+			player.sendMessage("å‘½ä»¤ä½¿ç”¨æ–¹æ³•ï¼š" + cmd.getUsage());
 			return true;
 		}
 		if (PasswordManager.checkPass(name, args[0])) {
 			plugin.authList.remove(name);
 			plugin.thread.timeout.remove(name);
 			plugin.rehabPlayer(player, name);
-			player.sendMessage(ChatColor.GREEN + "³É¹¦µÇÂ¼£¬»¶Ó­»Øµ½Meano·ş¡£");
-			LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} ³É¹¦µÇÂ¼", player.getName());
+			player.sendMessage(ChatColor.GREEN + "æˆåŠŸç™»å½•ï¼Œæ¬¢è¿å›æ¥ã€‚");
+			LoginSecurity.log.log(Level.INFO, "[LoginSecurity] {0} ç™»å½•æˆåŠŸ", player.getName());
 		} else {
-			player.sendMessage(ChatColor.RED + "ÃÜÂë´íÎó£¬Çë¼ì²éÃÜÂë´óĞ¡Ğ´µÈÎÊÌâ¡£");
-			LoginSecurity.log.log(Level.WARNING, "[LoginSecurity] {0} ¼üÈëÁË´íÎóµÄÃÜÂë", player.getName());
+			player.sendMessage(ChatColor.RED + "å¯†ç é”™è¯¯ï¼Œè¯·æ£€æŸ¥å¯†ç å¤§å°å†™ç­‰é—®é¢˜ã€‚");
+			LoginSecurity.log.log(Level.WARNING, "[LoginSecurity] {0} é”®å…¥äº†é”™è¯¯çš„å¯†ç ", player.getName());
 		}
 
 		return true;
