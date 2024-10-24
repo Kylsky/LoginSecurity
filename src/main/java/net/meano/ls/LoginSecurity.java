@@ -139,6 +139,8 @@ public class LoginSecurity extends JavaPlugin {
 		try {
 			this.authList = loadAuthList();
 		} catch (IOException ex) {
+			// log打印详细错误信息
+			//log.log(Level.SEVERE, "[LoginSecurity]"+ ex.getMessage());
 			log.log(Level.SEVERE, "[LoginSecurity] Could not read from auth list!");
 		} catch (ClassNotFoundException ex) {
 			log.log(Level.SEVERE, "[LoginSecurity] Could not read from auth list (bad data)!");
@@ -175,6 +177,11 @@ public class LoginSecurity extends JavaPlugin {
 	public Map<String, Boolean> loadAuthList() throws IOException,
 			ClassNotFoundException {
 		File file = new File(getDataFolder(), "authList");
+		if (!file.exists()) {
+			// 创建这个文件
+			file.createNewFile();
+			return new HashMap<String, Boolean>();
+		}
 		FileInputStream fin = new FileInputStream(file);
 		ObjectInputStream in = new ObjectInputStream(fin);
 		@SuppressWarnings("unchecked")
